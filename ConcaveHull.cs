@@ -149,4 +149,16 @@ namespace ConcaveHullProject
             return DistanceOp.Distance(point1, point2);
         }
     }
+    class CoordinateComparer : IEqualityComparer<Coordinate>
+    {
+        bool IEqualityComparer<Coordinate>.Equals(Coordinate x, Coordinate y)
+        {
+            return x.X == y.X && x.Y == y.Y;
+        }
+
+        int IEqualityComparer<Coordinate>.GetHashCode(Coordinate obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
 }
